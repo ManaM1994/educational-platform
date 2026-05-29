@@ -1,26 +1,218 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "IranSansX";
+  src:
+    url("../src/assets/fonts/IRANSansXFaNum-Regular.woff2") format("woff2"),
+    url("../src/assets/fonts/IRANSansXFaNum-Regular.woff") format("woff"),
+    url("../src/assets/fonts/IRANSansXFaNum-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IranSansX";
+  src:
+    url("../src/assets/fonts/IRANSansXFaNum-Bold.woff2") format("woff2"),
+    url("../src/assets/fonts/IRANSansXFaNum-Bold.woff") format("woff"),
+    url("../src/assets/fonts/IRANSansXFaNum-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #7c3aed;
+  --primary-light: #8b5cf6;
+  --secondary: #ec4899;
+  --secondary-light: #f472b6;
+  --accent: #f97316;
+  --background: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
+  --foreground: #1f2937;
+}
+
+.dark {
+  --primary: #8b5cf6;
+  --primary-light: #a78bfa;
+  --secondary: #f472b6;
+  --secondary-light: #f9a8d4;
+  --accent: #fb923c;
+  --background: #111827;
+  --foreground: #f3f4f6;
+}
+
+:root {
+  --surface: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
+
+  --muted: #6b7280;
+  --border: #f3f4f6;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --hero-bg: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --on-primary: #ffffff;
+  --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+}
+
+.dark {
+  --surface: #0b1220;
+  --muted: #9ca3af;
+  --border: #1f2937;
+  --header-bg: #0b1220;
+  --card-bg: #071028;
+  --hero-bg: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.15) 0%,
+    rgba(236, 72, 153, 0.06) 100%
+  );
+  --on-primary: #111827;
+  --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+}
+
+.bg-surface {
+  background-color: var(--surface) !important;
+}
+.bg-header {
+  background-color: var(--header-bg) !important;
+}
+.bg-card {
+  background-color: var(--card-bg) !important;
+}
+.bg-hero {
+  background: var(--hero-bg) !important;
+}
+.text-foreground {
+  color: var(--foreground) !important;
+}
+.text-muted {
+  color: var(--muted) !important;
+}
+.border-theme {
+  border-color: var(--border) !important;
+}
+.primary-gradient {
+  background: var(--primary-gradient) !important;
+}
+.on-primary {
+  color: var(--on-primary) !important;
+}
+
+.btn-primary {
+  background: var(--primary) !important;
+  color: var(--on-primary) !important;
+}
+
+/* Ant Design dark/light support */
+.ant-card,
+.ant-card-bordered .ant-card-body,
+.ant-card-body {
+  background: var(--card-bg) !important;
+  color: var(--foreground) !important;
+}
+.ant-card-bordered {
+  border-color: var(--border) !important;
+}
+.ant-modal-content,
+.ant-modal-header,
+.ant-modal-body,
+.ant-modal-footer {
+  color: var(--foreground) !important;
+}
+
+.ant-modal-header {
+  border-bottom-color: var(--border) !important;
+}
+.ant-modal-footer {
+  border-top-color: var(--border) !important;
+}
+.ant-btn-primary {
+  background: var(--primary) !important;
+  color: var(--on-primary) !important;
+  border-color: var(--primary) !important;
+}
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-textarea,
+.ant-select-selector,
+.ant-picker-input > input {
+  background: var(--surface) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+.ant-table,
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  background: var(--card-bg) !important;
+  color: var(--foreground) !important;
+}
+.ant-table-thead > tr > th {
+  border-bottom-color: var(--border) !important;
+}
+.ant-list-item,
+.ant-list-item-meta,
+.ant-upload-list-item,
+.ant-popover-inner-content,
+.ant-tooltip-inner {
+  background: var(--card-bg) !important;
+  color: var(--foreground) !important;
+}
+.ant-avatar {
+  background: var(--surface) !important;
+  color: var(--foreground) !important;
+}
+
+.badge-popular {
+  background: linear-gradient(90deg, var(--accent), #ef4444);
+  color: white !important;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "IranSansX", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.dashboard-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.dashboard-tabs .ant-tabs-tab-active {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+}
+
+.dashboard-tabs .ant-tabs-ink-bar {
+  display: none;
+}
+
+.tutor-dashboard-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.tutor-dashboard-tabs .ant-tabs-tab-active {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white !important;
+}
+
+.tutor-dashboard-tabs .ant-tabs-tab-active .anticon {
+  color: white !important;
+}
+
+.tutor-dashboard-tabs .ant-tabs-ink-bar {
+  display: none;
 }

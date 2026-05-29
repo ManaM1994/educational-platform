@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Educational Platform
 
-## Getting Started
+This repository contains an educational platform built with modern React and Next.js technologies.
 
-First, run the development server:
+## Technologies Used
+
+- **Framework:** Next.js 16
+- **Language:** TypeScript
+- **UI Library:** Ant Design (`antd`) with `@ant-design/nextjs-registry` for Next.js integration
+- **Styling:** Tailwind CSS is installed and configured, while Ant Design provides the main component system.
+- **State Management:**
+  - **Client state:** Redux Toolkit is used for application state such as theme switching.
+  - **Server state / data fetching:** TanStack Query (`@tanstack/react-query`) manages remote data and caching.
+- **HTTP client:** Axios is used for API requests and token handling.
+- **Forms / validation:** React Hook Form with Yup / Zod for validation support.
+
+## Project Features
+
+- RTL layout support for Persian interfaces
+- Dark / light theme switching powered by Redux Toolkit and Ant Design theme configuration
+- Authentication flow for both students and tutors
+- Course browsing, enrollment, and dashboard pages
+- Tutor profile management and course management interfaces
+- React Query powered data fetching and cache invalidation
+
+## Running the App
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run in development mode:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Important Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Theme mode is stored in Redux state and used by the Ant Design `ConfigProvider`.
+- Server state is managed with `@tanstack/react-query` using a shared `QueryClient`.
+- API communication is handled by `axios` using a centralized instance in `src/lib/axios.ts`.
 
-## Learn More
+## Sample Test Credentials
 
-To learn more about Next.js, take a look at the following resources:
+Use the following credentials to test the app:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Teacher**
+  - Username: `manamobahi73@gmail.com`
+  - Password: `123`
+- **Student**
+  - Username: `mm@gmail.com`
+  - Password: `123`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes for Developers
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The app root layout wraps pages with `src/lib/providers.tsx`, which sets up Redux, React Query, Ant Design, and custom theming.
+- The theme state is defined in `src/features/theme/themeSlice.ts` and exposed through Redux.
+- Most API logic lives under `src/features/*/api` and uses Axios request functions with React Query hooks.
