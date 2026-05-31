@@ -1,63 +1,74 @@
 # Educational Platform
 
-This repository contains an educational platform built with modern React and Next.js technologies.
+A modern educational platform built with Next.js 16 and TypeScript, designed for teachers, students, and administrators. This app includes tutor approval flow, course publishing, student enrollment, and payment receipt verification to provide a complete learning marketplace experience.
+
+## Key Features
+
+- ✅ Teacher and student authentication with separate dashboard experiences
+- ✅ Tutor registration requires admin approval before publishing courses
+- ✅ Course publication workflow for approved teachers
+- ✅ Student enrollment with payment receipt upload for verification
+- ✅ RTL support for Persian interfaces
+- ✅ Light and dark theme switching using Redux Toolkit and Ant Design
+- ✅ Centralized API handling with Axios and secure server-state management via React Query
+- ✅ Responsive course browsing, tutor profiles, and dashboard management
 
 ## Technologies Used
 
 - **Framework:** Next.js 16
 - **Language:** TypeScript
-- **UI Library:** Ant Design (`antd`) with `@ant-design/nextjs-registry` for Next.js integration
-- **Styling:** Tailwind CSS is installed and configured, while Ant Design provides the main component system.
-- **State Management:**
-  - **Client state:** Redux Toolkit is used for application state such as theme switching.
-  - **Server state / data fetching:** TanStack Query (`@tanstack/react-query`) manages remote data and caching.
-- **HTTP client:** Axios is used for API requests and token handling.
-- **Forms / validation:** React Hook Form with Yup / Zod for validation support.
+- **UI Library:** Ant Design (`antd`) with `@ant-design/nextjs-registry`
+- **Styling:** Tailwind CSS with Ant Design component styling
+- **State Management:** Redux Toolkit for client state, including theme control
+- **Data Fetching:** TanStack Query (`@tanstack/react-query`) for remote data and caching
+- **HTTP Client:** Axios for API requests and token handling
+- **Forms & Validation:** React Hook Form with Yup / Zod support
 
-## Project Features
+## Running Locally
 
-- RTL layout support for Persian interfaces
-- Dark / light theme switching powered by Redux Toolkit and Ant Design theme configuration
-- Authentication flow for both students and tutors
-- Course browsing, enrollment, and dashboard pages
-- Tutor profile management and course management interfaces
-- React Query powered data fetching and cache invalidation
-
-## Running the App
-
-Install dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Run in development mode:
+2. Start development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+3. Open the app:
+
+[http://localhost:3000](http://localhost:3000)
+
+## Project Screenshots
+
+<p align="center">
+  <img src="public/image.png" alt="Homepage screenshot" width="320" />
+  <img src="public/image%20copy.png" alt="Student dashboard screenshot" width="320" />
+  <img src="public/image%20copy%202.png" alt="Teacher dashboard screenshot" width="320" />
+</p>
 
 ## Important Notes
 
-- Theme mode is stored in Redux state and used by the Ant Design `ConfigProvider`.
-- Server state is managed with `@tanstack/react-query` using a shared `QueryClient`.
-- API communication is handled by `axios` using a centralized instance in `src/lib/axios.ts`.
+- Theme state is managed in Redux and applied through Ant Design `ConfigProvider`
+- Server state is handled with a shared React Query `QueryClient`
+- API calls use a centralized Axios instance in `src/lib/axios.ts`
+- Admin workflow is required for tutor approval before tutors can publish their courses
+- Students must upload payment receipts when registering for a course to enable verification
 
 ## Sample Test Credentials
 
-Use the following credentials to test the app:
-
 - **Teacher**
-  - Username: `manamobahi73@gmail.com`
+  - Email: `manamobahi73@gmail.com`
   - Password: `123`
 - **Student**
-  - Username: `mm@gmail.com`
+  - Email: `mm@gmail.com`
   - Password: `123`
 
-## Notes for Developers
+## Developer Notes
 
-- The app root layout wraps pages with `src/lib/providers.tsx`, which sets up Redux, React Query, Ant Design, and custom theming.
-- The theme state is defined in `src/features/theme/themeSlice.ts` and exposed through Redux.
-- Most API logic lives under `src/features/*/api` and uses Axios request functions with React Query hooks.
+- Root providers are configured in `src/lib/providers.tsx` for Redux, React Query, Ant Design, and theming
+- Theme state lives in `src/features/theme/themeSlice.ts`
+- API logic is organized under `src/features/*/api` with Axios and React Query hooks

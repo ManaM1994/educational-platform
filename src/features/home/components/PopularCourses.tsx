@@ -123,7 +123,7 @@ export default function PopularCourses() {
     <section className="py-20 px-4 bg-surface">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-purple-100/90 dark:bg-white/10 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-[#dcb7f63b] text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <FireOutlined />
             دوره‌های پرطرفدار
           </div>
